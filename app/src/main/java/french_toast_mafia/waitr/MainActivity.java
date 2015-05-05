@@ -35,6 +35,7 @@ public class MainActivity extends FragmentActivity {
       SlidingTabsBasicFragment fragment = new SlidingTabsBasicFragment();
       transaction.replace(R.id.sample_content_fragment, fragment);
       transaction.commit();
+      new GcmRegistrationAsyncTask(this).execute();
     }
   }
 
