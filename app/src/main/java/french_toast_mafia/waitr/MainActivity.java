@@ -21,14 +21,34 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+import java.util.ArrayList;
 
 
 public class MainActivity extends FragmentActivity {
+
+  public static ArrayAdapter<String> arrayAdapter;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
+
+    // Construct the data source
+    ArrayList<String> restaurants = new ArrayList<String>();
+    restaurants.add("Whataburger");
+    restaurants.add("Chipotle Mexican Grill");
+    restaurants.add("Torchy's Tacos");
+    restaurants.add("Starbucks");
+    restaurants.add("Noodles and Company");
+    restaurants.add("Mellow Mushroom");
+    restaurants.add("Pluckers Wing Bar");
+    restaurants.add("Jimmy John's");
+// Create the adapter to convert the array to views
+    CustomAdapter adapter = new CustomAdapter(this, restaurants);
+    arrayAdapter = adapter;
 
     if (savedInstanceState == null) {
       FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();

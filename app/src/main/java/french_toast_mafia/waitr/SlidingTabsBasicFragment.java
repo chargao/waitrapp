@@ -23,6 +23,7 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import french_toast_mafia.view.SlidingTabLayout;
@@ -31,6 +32,8 @@ public class SlidingTabsBasicFragment extends Fragment {
 
   private SlidingTabLayout mSlidingTabLayout;
   private ViewPager mViewPager;
+  private static final int PAGE_COUNT = 2; // change this to change number of pages in app
+  public ListView listView;
 
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -76,7 +79,7 @@ public class SlidingTabsBasicFragment extends Fragment {
      */
     @Override
     public int getCount() {
-      return 2;
+      return PAGE_COUNT;
     }
 
     /**
@@ -116,18 +119,87 @@ public class SlidingTabsBasicFragment extends Fragment {
      */
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
-      // Inflate a new layout from our resources
-      View view = getActivity().getLayoutInflater().inflate(R.layout.pager_item,
+      View view;
+      TextView title;
+      view = getActivity().getLayoutInflater().inflate(R.layout.pager_item,
               container, false);
       // Add the newly created View to the ViewPager
       container.addView(view);
-
       // Retrieve a TextView from the inflated View, and update it's text
-      TextView title = (TextView) view.findViewById(R.id.item_title);
-      title.setText(String.valueOf(position + 1));
+      title = (TextView) view.findViewById(R.id.item_title);
+
+      if(position == 0) { //lines page
+       /* FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        MapsActivity fragment = new MapsActivity();
+        transaction.replace(R.id.sample_content_fragment, fragment);
+        transaction.commit();*/
+        view = getActivity().getLayoutInflater().inflate(R.layout.map_page,
+                container, false);
+        // Add the newly created View to the ViewPager
+        container.addView(view);
+        // Retrieve a TextView from the inflated View, and update it's text
+        title = (TextView) view.findViewById(R.id.item_title);
+
+
+
+      }
+      if(position == 1) {
+        view = getActivity().getLayoutInflater().inflate(R.layout.coupons_page,
+                container, false);
+        // Add the newly created View to the ViewPager
+        container.addView(view);
+        // Retrieve a TextView from the inflated View, and update it's text
+        title = (TextView) view.findViewById(R.id.item_subtitle);
+
+        //Trying to get list view stuff to work...
+        // Get ListView object from xml
+        listView = (ListView) view.findViewById(R.id.list);
+
+        // Attach the adapter to a ListView
+        ListView listView = (ListView) view.findViewById(R.id.list);
+        // Assign adapter to ListView
+        listView.setAdapter(MainActivity.arrayAdapter);
+       /*
+         // Retrieve a ListView from the inflated View, and update it's list
+        listView = (ListView) view.findViewById(R.id.list);
+        // Defined Array values to show in ListView
+
+        //listView.setAdapter(rm);
+        // Retrieve a TextView from the inflated View, and update it's text
+        title = (TextView) view.findViewById(R.id.item_title);
+        title.setText(x);
+        */
+      }
+      if (position > (PAGE_COUNT - 1)) { //not a page
+        view = getActivity().getLayoutInflater().inflate(R.layout.pager_item,
+                container, false);
+        // Add the newly created View to the ViewPager
+        container.addView(view);
+        // Retrieve a TextView from the inflated View, and update it's text
+        title = (TextView) view.findViewById(R.id.item_title);
+        title = oopsView(title);
+      }
+
+    //  TextView title = (TextView) view.findViewById(R.id.item_title);
+   //   title.setText(String.valueOf(position + 1));
 
       // Return the View
       return view;
+    }
+
+    private TextView linesView(TextView title) {
+      title.setText("Lines");
+      return title;
+    }
+
+    private TextView couponsView(TextView title) {
+      title.setText("Coupons");
+      return title;
+    }
+
+    private TextView oopsView(TextView title) {
+      title.setText("Oops");
+      return title;
     }
 
     /**
