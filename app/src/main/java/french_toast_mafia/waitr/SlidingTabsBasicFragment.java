@@ -251,7 +251,7 @@ public class SlidingTabsBasicFragment extends Fragment {
 
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
+        /*   @Override
             public void onClick(View arg0) {
                 LayoutInflater layoutInflater
                         = (LayoutInflater)getBaseContext()
@@ -274,8 +274,8 @@ public class SlidingTabsBasicFragment extends Fragment {
                 popupWindow.showAsDropDown(btnOpenPopup, 50, -30);
 
             }});
-      }
-            /*
+      }*/
+
           @Override
           public void onItemClick(AdapterView<?> parent, View view,
                                   int position, long id) {
@@ -292,7 +292,8 @@ public class SlidingTabsBasicFragment extends Fragment {
                     .show();
 
           }
-        });*/
+        });
+
        /*
          // Retrieve a ListView from the inflated View, and update it's list
         listView = (ListView) view.findViewById(R.id.list);
