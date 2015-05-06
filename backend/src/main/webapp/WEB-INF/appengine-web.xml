@@ -5,12 +5,11 @@
     <application>myApplicationId</application>
     <version>1</version>
     <threadsafe>true</threadsafe>
-
     <system-properties>
         <property name="java.util.logging.config.file" value="WEB-INF/logging.properties"/>
 
         <!--
-            TODO: Before you run your application, you need a Google Cloud Messaging API key.
+             Before you run your application, you need a Google Cloud Messaging API key.
 
             To get one, follow this link, follow the directions and press "Create" at the end:
 
@@ -21,4 +20,8 @@
 
         <property name="gcm.api.key" value="AIzaSyDbLu9clPXSH2OVp_s5FynpIcn0xJzD3TM"/>
     </system-properties>
+    <sessions-enabled>true</sessions-enabled>
+        <inbound-services>
+          <service>xmpp_message</service>
+        </inbound-services>
 </appengine-web-app>

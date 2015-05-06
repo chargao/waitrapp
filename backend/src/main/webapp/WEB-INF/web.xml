@@ -22,7 +22,14 @@
         <servlet-name>SystemServiceServlet</servlet-name>
         <url-pattern>/_ah/spi/*</url-pattern>
     </servlet-mapping>
-
+    <servlet>
+        <servlet-name>XmppHandler</servlet-name>
+        <servlet-class>com.example.Charlie.myapplication.backend.XmppHandler</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>XmppHandler</servlet-name>
+        <url-pattern>/_ah/xmpp/message/chat/</url-pattern>
+    </servlet-mapping>
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>
     </welcome-file-list>
