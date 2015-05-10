@@ -254,7 +254,7 @@ public class SlidingTabsBasicFragment extends Fragment {
                                             "com.google.android.gcm.demo.app.ECHO_NOW");
                                     String id = Integer.toString(msgId.incrementAndGet());
                                     //gcm.send(SENDER_ID + "@gcm.googleapis.com", id, data);
-                                    gcm.send(SENDER_ID + "@gcm.googleapis.com", id, data);
+                                    gcm.send(SENDER_ID + "@gcm.googleapis.com", "psychic-pillar-87403@appspot.com", data);
                                     msg = "Sent message";
                                 } catch (IOException ex) {
                                     msg = "Error :" + ex.getMessage();
