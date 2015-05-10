@@ -4,8 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/backend/backend.iml" filepath="$PROJECT_DIR$/backend/backend.iml" />
-      <module fileurl="file://$PROJECT_DIR$/waitrapp.iml" filepath="$PROJECT_DIR$/waitrapp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/waitrapp - Copy.iml" filepath="$PROJECT_DIR$/waitrapp - Copy.iml" />
     </modules>
   </component>
 </project>
-
